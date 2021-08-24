@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+
+:root {
+  --rgb-1: 20, 20, 20;
+  --rgb-2: 200, 200, 200;
+  --rgb-3: 200, 60, 0;
+
+  --clr-1: rgb(var(--rgb-1));
+  --clr-2: rgb(var(--rgb-2));
+  --clr-hl: rgb(var(--rgb-3));
+
+  --gap-min: 2px;
+  --gap-mid: 10px;
+  --gap-max: 20px;
+  --tap-size: 40px;
+  --nav-w: 220px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: grid;
+  grid-template-rows: min-content auto min-content;
+  min-height: 100vh;
+  color: var(--clr-1);
+  background-color: var(--clr-2);
+  font-family: 'Roboto Mono', monospace;
+}
+
+header, footer, main {
+  padding: var(--gap-max);
+  padding-left: calc(var(--nav-w) + var(--gap-max));
+}
+
+main {
+  max-width: 960px;
+}
+
+code {
+  display: inline-block;
+  white-space: pre-wrap;
+  padding: var(--gap-max);
+  color: var(--clr-2);
+  background-color: var(--clr-1);
+  overflow: auto;
+}
+
+code .hl {
+  color: var(--clr-hl);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  background-color: var(--clr-1);
+  color: var(--clr-2);
+  padding: var(--gap-max);
+  min-width: var(--nav-w);
+}
+
+.nav-inner {
+  display: block;
+  flex-grow: 1;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: var(--tap-size);
+  color: var(--clr-2);
+  text-decoration: none;
+}
+
+.artcl-card {
+  display: inline-block;
+  padding: var(--gap-max);
+  background-color: #fff;
+}
+.artcl-card > .meta {
+  font-size: 0.8em;
+  margin-top: var(--gap-max);
+}
