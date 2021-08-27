@@ -2,16 +2,68 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🎈 re4ma</title>
+  <title>🎈re4ma</title>
   <meta name="description" content="re4ma">
   <base href="../">
   <link rel="stylesheet" href="./css/styles.css">
   
 </head>
 <body>
-<header>re4ma</header>
+<header>🎈re4ma</header>
 <main>
-  <h3>Render</h3>
+  <col-css>
+    <h2 id="import-resources">Import resources</h2>
+<pre><code class="language-html"><span class="hl">&lt;</span>!-- Import any external HTML chunk or component<span class="hl">:</span> --<span class="hl">&gt;</span>
+<span class="hl">&lt;</span>re-htm src<span class="hl">=</span><span class="hl">"</span>htm/page<span class="hl">.</span>htm<span class="hl">"</span><span class="hl">&gt;</span><span class="hl">&lt;</span>re-htm<span class="hl">&gt;</span>
+
+<span class="hl">&lt;</span>!-- Import and render Markdown<span class="hl">:</span> --<span class="hl">&gt;</span>
+<span class="hl">&lt;</span>re-md src<span class="hl">=</span><span class="hl">"</span>md/article<span class="hl">.</span>md<span class="hl">"</span><span class="hl">&gt;</span><span class="hl">&lt;</span>re-md<span class="hl">&gt;</span>
+
+<span class="hl">&lt;</span>!-- Import and render code snippet<span class="hl">:</span> --<span class="hl">&gt;</span>
+<span class="hl">&lt;</span>re-code src<span class="hl">=</span><span class="hl">"</span>js/snippet<span class="hl">.</span>js<span class="hl">"</span><span class="hl">&gt;</span><span class="hl">&lt;</span>re-code<span class="hl">&gt;</span>
+
+<span class="hl">&lt;</span>!-- Import Javascript on demand<span class="hl">:</span> --<span class="hl">&gt;</span>
+<span class="hl">&lt;</span>re-js src<span class="hl">=</span><span class="hl">"</span>js/app<span class="hl">.</span>js<span class="hl">"</span><span class="hl">&gt;</span><span class="hl">&lt;</span>re-js<span class="hl">&gt;</span>
+
+<span class="hl">&lt;</span>!-- Import styles<span class="hl">:</span> --<span class="hl">&gt;</span>
+<span class="hl">&lt;</span>re-css src<span class="hl">=</span><span class="hl">"</span>css/styles<span class="hl">.</span>css<span class="hl">"</span><span class="hl">&gt;</span><span class="hl">&lt;</span>re-css<span class="hl">&gt;</span>
+
+<span class="hl">&lt;</span>!-- Adaptive images<span class="hl">:</span> --<span class="hl">&gt;</span>
+<span class="hl">&lt;</span>re-img src<span class="hl">=</span><span class="hl">"</span>img/picture<span class="hl">.</span>jpg<span class="hl">"</span><span class="hl">&gt;</span><span class="hl">&lt;</span>re-img<span class="hl">&gt;</span>
+
+<span class="hl">&lt;</span>!-- Rendering from external data endpoint<span class="hl">:</span> --<span class="hl">&gt;</span>
+<span class="hl">&lt;</span>re-peat 
+  template-src<span class="hl">=</span><span class="hl">"</span>htm/user-card-template<span class="hl">.</span>htm<span class="hl">"</span>
+  data-src<span class="hl">=</span><span class="hl">"</span>data/users<span class="hl">.</span>json<span class="hl">"</span><span class="hl">&gt;</span>
+<span class="hl">&lt;</span>re-peat<span class="hl">&gt;</span>
+</code></pre>
+<p>Use *.html file names for entry points and *.htm for chunks and templates</p>
+<h3 id="named-slots">Named Slots:</h3>
+<pre><code class="language-html"><span class="hl">&lt;</span>re-htm src<span class="hl">=</span><span class="hl">"</span>html/page<span class="hl">.</span>htm<span class="hl">"</span><span class="hl">&gt;</span>
+  <span class="hl">&lt;</span>div slot<span class="hl">=</span><span class="hl">"</span>content<span class="hl">"</span><span class="hl">&gt;</span><span class="hl"><span class="hl">&lt;</span>/</span>div<span class="hl">&gt;</span>
+<span class="hl">&lt;</span>re-htm<span class="hl">&gt;</span>
+</code></pre>
+<p>In HTML Chunk:</p>
+<pre><code class="language-html"><span class="hl">&lt;</span>div<span class="hl">&gt;</span>
+  <span class="hl">&lt;</span>slot name<span class="hl">=</span><span class="hl">"</span>content<span class="hl">"</span><span class="hl">&gt;</span><span class="hl"><span class="hl">&lt;</span>/</span>slot<span class="hl">&gt;</span>
+<span class="hl"><span class="hl">&lt;</span>/</span>div<span class="hl">&gt;</span>
+</code></pre>
+<h3 id="placeholders-for-arttribute-values">Placeholders for arttribute values:</h3>
+<p>Set custom HTML attributes:</p>
+<pre><code class="language-html"><span class="hl">&lt;</span>re-htm src<span class="hl">=</span><span class="hl">"</span>html/page<span class="hl">.</span>htm<span class="hl">"</span> --text<span class="hl">=</span><span class="hl">"</span>My Text<span class="hl">"</span><span class="hl">&gt;</span><span class="hl">&lt;</span>re-htm<span class="hl">&gt;</span>
+</code></pre>
+<p>Then use values in template:</p>
+<pre><code class="language-html"><span class="hl">&lt;</span>div<span class="hl">&gt;</span><span class="hl">{</span><span class="hl">{</span>text<span class="hl">}</span><span class="hl">}</span><span class="hl"><span class="hl">&lt;</span>/</span>div<span class="hl">&gt;</span>
+</code></pre>
+<h3 id="build-stage-helper-attributes">Build stage helper attributes</h3>
+<p>Clear element content (remove children):</p>
+<pre><code class="language-html"><span class="hl">&lt;</span>my-component re-clear<span class="hl">&gt;</span><span class="hl">&lt;</span>my-component<span class="hl">&gt;</span>
+</code></pre>
+<p>Remove cetrain element after render:</p>
+<pre><code class="language-html"><span class="hl">&lt;</span>my-component re-move<span class="hl">&gt;</span><span class="hl">&lt;</span>my-component<span class="hl">&gt;</span>
+</code></pre>
+
+  </col-css>
 </main>
 <nav>
   <div class="nav-inner">

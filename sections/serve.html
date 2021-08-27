@@ -2,16 +2,66 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🎈 re4ma</title>
+  <title>🎈re4ma</title>
   <meta name="description" content="re4ma">
   <base href="../">
   <link rel="stylesheet" href="./css/styles.css">
   
 </head>
 <body>
-<header>re4ma</header>
+<header>🎈re4ma</header>
 <main>
-  <h3>Serve</h3>
+  <col-css>
+    <h2 id="re-server">Re-server</h2>
+<p>You can use one common HTML-temlate defined for each resource directory.</p>
+<p>To make it work, set it in your <code>project<span class="hl">.</span>json</code> file:</p>
+<pre><code class="language-json"><span class="hl">{</span>
+  <span class="hl">"</span>serve<span class="hl">"</span><span class="hl">:</span> <span class="hl">{</span>
+    <span class="hl">"</span>port<span class="hl">"</span><span class="hl">:</span> 5000<span class="hl">,</span>
+    <span class="hl">"</span>src_cfg<span class="hl">"</span><span class="hl">:</span> <span class="hl">[</span>
+      <span class="hl">{</span>
+        <span class="hl">"</span>type<span class="hl">"</span><span class="hl">:</span> <span class="hl">"</span>html<span class="hl">"</span><span class="hl">,</span>
+        <span class="hl">"</span>src_path<span class="hl">"</span><span class="hl">:</span> <span class="hl">"</span>/src/sections<span class="hl">"</span><span class="hl">,</span>
+        <span class="hl">"</span>out_path<span class="hl">"</span><span class="hl">:</span> <span class="hl">"</span>/dist/sections<span class="hl">"</span><span class="hl">,</span>
+        <span class="hl">"</span>template<span class="hl">"</span><span class="hl">:</span> <span class="hl">{</span>
+          <span class="hl">"</span>path<span class="hl">"</span><span class="hl">:</span> <span class="hl">"</span><span class="hl">.</span>/src/htm/base-template<span class="hl">.</span>htm<span class="hl">"</span><span class="hl">,</span>
+          <span class="hl">"</span>set_values<span class="hl">"</span><span class="hl">:</span> <span class="hl">{</span>
+            <span class="hl">"</span>TITLE<span class="hl">"</span><span class="hl">:</span> <span class="hl">"</span>🎈re4ma<span class="hl">"</span><span class="hl">,</span>
+            <span class="hl">"</span>DESCRIPTION<span class="hl">"</span><span class="hl">:</span> <span class="hl">"</span>re4ma<span class="hl">"</span><span class="hl">,</span>
+            <span class="hl">"</span>HEADER_TXT<span class="hl">"</span><span class="hl">:</span> <span class="hl">"</span>🎈re4ma<span class="hl">"</span><span class="hl">,</span>
+            <span class="hl">"</span>FOOTER_TXT<span class="hl">"</span><span class="hl">:</span> <span class="hl">"</span>©<span class="hl">;</span> 2021<span class="hl">"</span><span class="hl">,</span>
+            <span class="hl">"</span>BASE_PATH<span class="hl">"</span><span class="hl">:</span> <span class="hl">"</span><span class="hl">.</span><span class="hl">.</span>/<span class="hl">"</span><span class="hl">,</span>
+            <span class="hl">"</span>CSS_PATH<span class="hl">"</span><span class="hl">:</span> <span class="hl">"</span><span class="hl">.</span>/css/styles<span class="hl">.</span>css<span class="hl">"</span>
+          <span class="hl">}</span>
+        <span class="hl">}</span>
+      <span class="hl">}</span>
+    <span class="hl">]</span>
+  <span class="hl">}</span>
+<span class="hl">}</span>
+</code></pre>
+<p>And create auto-template:</p>
+<pre><code class="language-html"><span class="hl">&lt;</span>!DOCTYPE html<span class="hl">&gt;</span>
+<span class="hl">&lt;</span>html lang<span class="hl">=</span><span class="hl">"</span>en<span class="hl">"</span><span class="hl">&gt;</span>
+<span class="hl">&lt;</span>head<span class="hl">&gt;</span>
+  <span class="hl">&lt;</span>meta charset<span class="hl">=</span><span class="hl">"</span>UTF-8<span class="hl">"</span><span class="hl">&gt;</span>
+  <span class="hl">&lt;</span>meta http-equiv<span class="hl">=</span><span class="hl">"</span>X-UA-Compatible<span class="hl">"</span> content<span class="hl">=</span><span class="hl">"</span>IE<span class="hl">=</span>edge<span class="hl">"</span><span class="hl">&gt;</span>
+  <span class="hl">&lt;</span>meta name<span class="hl">=</span><span class="hl">"</span>viewport<span class="hl">"</span> content<span class="hl">=</span><span class="hl">"</span>width<span class="hl">=</span>device-width<span class="hl">,</span> initial-scale<span class="hl">=</span>1<span class="hl">.</span>0<span class="hl">"</span><span class="hl">&gt;</span>
+  <span class="hl">&lt;</span>title<span class="hl">&gt;</span><span class="hl">{</span><span class="hl">{</span>TITLE<span class="hl">}</span><span class="hl">}</span><span class="hl"><span class="hl">&lt;</span>/</span>title<span class="hl">&gt;</span>
+  <span class="hl">&lt;</span>meta name<span class="hl">=</span><span class="hl">"</span>description<span class="hl">"</span> content<span class="hl">=</span><span class="hl">"</span><span class="hl">{</span><span class="hl">{</span>DESCRIPTION<span class="hl">}</span><span class="hl">}</span><span class="hl">"</span><span class="hl">&gt;</span>
+  <span class="hl">&lt;</span>base href<span class="hl">=</span><span class="hl">"</span><span class="hl">{</span><span class="hl">{</span>BASE_PATH<span class="hl">}</span><span class="hl">}</span><span class="hl">"</span><span class="hl">&gt;</span>
+  <span class="hl">&lt;</span>link rel<span class="hl">=</span><span class="hl">"</span>stylesheet<span class="hl">"</span> href<span class="hl">=</span><span class="hl">"</span><span class="hl">{</span><span class="hl">{</span>CSS_PATH<span class="hl">}</span><span class="hl">}</span><span class="hl">"</span><span class="hl">&gt;</span>
+  <span class="hl">&lt;</span>script src<span class="hl">=</span><span class="hl">"</span><span class="hl">.</span><span class="hl">.</span>/re4ma/render/render<span class="hl">.</span>js<span class="hl">"</span> type<span class="hl">=</span><span class="hl">"</span>module<span class="hl">"</span> re-move<span class="hl">&gt;</span><span class="hl"><span class="hl">&lt;</span>/</span>script<span class="hl">&gt;</span>
+<span class="hl"><span class="hl">&lt;</span>/</span>head<span class="hl">&gt;</span>
+<span class="hl">&lt;</span>body<span class="hl">&gt;</span>
+<span class="hl">&lt;</span>re-htm 
+  src<span class="hl">=</span><span class="hl">"</span><span class="hl">.</span>/htm/page-layout<span class="hl">.</span>htm<span class="hl">"</span>
+  --header-txt<span class="hl">=</span><span class="hl">"</span><span class="hl">{</span><span class="hl">{</span>HEADER_TXT<span class="hl">}</span><span class="hl">}</span><span class="hl">"</span>
+  --footer-txt<span class="hl">=</span><span class="hl">"</span><span class="hl">{</span><span class="hl">{</span>FOOTER_TXT<span class="hl">}</span><span class="hl">}</span><span class="hl">"</span><span class="hl">&gt;</span><span class="hl">{</span><span class="hl">{</span>CONTENT<span class="hl">}</span><span class="hl">}</span><span class="hl"><span class="hl">&lt;</span>/</span>re-htm<span class="hl">&gt;</span>
+<span class="hl"><span class="hl">&lt;</span>/</span>body<span class="hl">&gt;</span>
+<span class="hl"><span class="hl">&lt;</span>/</span>html<span class="hl">&gt;</span>
+</code></pre>
+
+  </col-css>
 </main>
 <nav>
   <div class="nav-inner">
